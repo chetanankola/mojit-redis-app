@@ -33,31 +33,39 @@ YUI.add('boardBinderIndex', function (Y, NAME) {
          * @param node {Node} The DOM node to which this mojit is attached.
          */
 
-        onRefreshView: function(node) {
-            var self=this;
+        onRefreshView: function (node) {
+            var self = this, Nav;
 
             //alert('refreshing');
-            node.all('.article').on('click', function(e){
+            node.all('.article').on('click', function (e) {
                 //alert('deleting article:' + e.currentTarget.get('id'));
                 var args = {
                     params: {
                         route: {
-                            call:'deleteEntry',
-                            id:e.currentTarget.get('id')
+                            call: 'deleteEntry',
+                            id: e.currentTarget.get('id')
                         }
                     }
                 };
                 self.mojitProxy.refreshView(args);
             });
-
         },
 
 
         bind: function (node) {
             var me = this,
-            self=this;
+                self = this,
+                thatNode = node,
+                Nav = new Y.Nav({
+                    registry: [{
+                        node: '#output',
+                        pullToTop: true
+                    }],
+                    debug: false,
+                    styleContainer: true/*optional*/
+                });
+
             this.node = node;
-            thatNode = node;
 
             self.mojitProxy.refreshView();
 
@@ -73,46 +81,46 @@ YUI.add('boardBinderIndex', function (Y, NAME) {
             }, 5000 );*/
 
 
-             Y.on('SHOW_ALL_ARTICLE', function(){
+            Y.on('SHOW_ALL_ARTICLE', function () {
                 var args = {
                     params: {
                         route: {
-                            call:'showAllArticles'
+                            call: 'showAllArticles'
                         }
                     }
                 };
                 self.mojitProxy.refreshView(args);
             });
 
-            Y.on('GET_LAST_ARTICLE', function(){
+            Y.on('GET_LAST_ARTICLE', function () {
                 var args = {
                     params: {
                         route: {
-                            call:'getLastEntry'
+                            call: 'getLastEntry'
                         }
                     }
                 };
                 self.mojitProxy.refreshView(args);
             });
 
-            Y.on('GET_FIRST_ARTICLE', function(){
+            Y.on('GET_FIRST_ARTICLE', function () {
                 var args = {
                     params: {
                         route: {
-                            call:'getFirstEntry'
+                            call: 'getFirstEntry'
                         }
                     }
                 };
                 self.mojitProxy.refreshView(args);
             });
 
-            Y.on('UPDATE_BOARD', function(e, input) {
+            Y.on('UPDATE_BOARD', function (e, input) {
                 var args = {
                     params: {
                         route: {
-                            defer:true,
-                            call:'addArticle',
-                            boardInputVal:input.val
+                            defer: true,
+                            call: 'addArticle',
+                            boardInputVal: input.val
                         }
                     }
                 };
@@ -123,4 +131,4 @@ YUI.add('boardBinderIndex', function (Y, NAME) {
 
     };
 
-}, '0.0.1', {requires: ['event-mouseenter', 'mojito-client', 'event-key']});
+}, '0.0.1', {requires: ['gallery-navigate-easy', 'mojito-client', 'event-key']});
