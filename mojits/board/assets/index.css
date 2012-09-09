@@ -1,0 +1,48 @@
+.board { 
+	border-radius: 5px; 
+	margin: 5px;
+	font-size:1.0em;
+	word-wrap: break-word;
+	background:#fefefe;
+	border: 1px solid #E9E9E9;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+	padding: 10px;
+	text-align: center;
+	text-shadow: 1px 1px 0 white;
+}
+
+
+
+
+
+.noborder{
+	border:none;
+	background:red;
+}
+
+.article{
+	cursor:pointer;
+	background:#eee; 
+	margin:3px;
+	word-wrap: break-word;
+	text-align:center;
+}
+
+.article:hover {
+	background:#ccc;
+}
+
+.article h2{
+	font-size:3em; 
+	word-wrap: break-word;
+	margin:3px;
+}
+
+.btn-delete{
+    border:1px solid #ccc;
+    padding:0px;
+	font-size:1.0em;	
+	background:#fff;
+	border-radius:20px;
+	text-align:center;
+}

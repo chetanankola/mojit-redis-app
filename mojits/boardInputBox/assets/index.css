@@ -1,0 +1,54 @@
+.boardInputBox{
+	border-radius: 5px; 
+	margin: 8px;
+	background:#fefefe;
+	border: 1px solid #E9E9E9;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+	padding: 10px;
+	text-align: center;
+	text-shadow: 1px 1px 0 white;
+	white-space: nowrap;
+	font-size:3em;
+	word-wrap: break-word;
+}
+
+.btn {
+	margin:10px 53px 10px 53px;
+	word-wrap: break-word;
+	padding:10px;
+	cursor:pointer;
+	background:#eee;
+	border-radius:4px;
+	text-align: center;
+	box-shadow: 0 5px 5px -5px #777;
+}
+
+
+.btn:hover{
+	box-shadow: 0 7px 7px -6px #000;
+	background:#ccc;
+}
+.btn:active{
+	background:#fff;
+	box-shadow: 0 5px 5px -5px #000;
+}
+
+.big-search-box { 
+	z-index:1000; 
+	border-radius: 6px; 
+	border: 4px solid #ddd;
+	width:90%;
+	height:60px;
+	margin:5px;
+	font-size:1.0em;
+	color:#555;
+	font-weight:bold;
+	padding:7px;
+	-webkit-transition:all 0.9s; outline:none; 
+}
+
+.big-search-box:focus{
+	box-shadow:inset 0 0 10px #999;
+	border:4px solid #ffffff;
+	-webkit-transition:all 0.9s;
+}

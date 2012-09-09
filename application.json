@@ -1,0 +1,56 @@
+[
+    {
+        "settings": [ "master" ],
+        "log": {
+          "client": {
+            "level": "warn",
+            "yui": true
+          },
+          "server": { 
+            "level": "debug",
+            "yui": true
+          } 
+        },
+
+        "appPort": 8002,
+        "staticHandling": {
+            "appName": "mojit-redis-app"
+        },
+        "specs": {
+            "main" : {
+                  "type": "HTMLFrameMojit",
+                  "config": {
+                    "title": "main",
+                    "deploy": true,
+                    "child": {
+                        "type" : "main",
+                        "config" : {
+                            "children" : {
+                                "board": {
+                                    "base": "board"
+                                },
+                                "boardInputBox": {
+                                    "base": "boardInputBox"
+                                } 
+                            }
+                        }
+                    },
+                    "assets": {
+                        "top": {
+                            "css":[
+                                "http://yui.yahooapis.com/3.4.1/build/cssfonts/fonts-min.css",
+                                "http://yui.yahooapis.com/3.4.1/build/cssreset/reset-min.css"
+                            ]
+                        }
+                    }
+                }
+            },
+            "boardInputBox": {
+                "type": "boardInputBox"
+            },
+            "board": {
+                "type": "board"
+            }             
+        }
+    }
+]
