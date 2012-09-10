@@ -56,18 +56,20 @@ YUI.add('boardBinderIndex', function (Y, NAME) {
             var me = this,
                 self = this,
                 thatNode = node,
-                Nav = new Y.Nav({
-                    registry: [{
-                        node: '#output',
-                        pullToTop: true
-                    }],
-                    debug: false,
-                    styleContainer: true/*optional*/
-                });
+                Nav;
 
             this.node = node;
 
             self.mojitProxy.refreshView();
+
+            Nav = new Y.Nav({
+                registry: [{
+                    node: '#output',
+                    pullToTop: false
+                }],
+                debug: false,
+                styleContainer: true/*optional*/
+            });
 
             /*setInterval(function(){
                 var args = {
