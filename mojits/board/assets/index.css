@@ -11,10 +11,6 @@
 	text-shadow: 1px 1px 0 white;
 }
 
-
-
-
-
 .noborder{
 	border:none;
 	background:red;
@@ -23,26 +19,58 @@
 .article{
 	cursor:pointer;
 	background:#eee; 
+	line-height:80px;
+	padding-bottom:20px;
+	padding-top:20px;
 	margin:3px;
-	word-wrap: break-word;
-	text-align:center;
+	border-radius:4px;
+	/*word-wrap: break-word;
+	text-align:center;*/
+	margin-bottom:10px;
 }
 
 .article:hover {
 	background:#ccc;
 }
 
-.article h2{
+
+.article .content {
+	display:inline;
 	font-size:3em; 
+	line-height:70px;
 	word-wrap: break-word;
 	margin:3px;
+	padding:10px;
+	/*border:1px solid #777;
+	background:#fff;*/
+	color:#777;
 }
 
-.btn-delete{
-    border:1px solid #ccc;
-    padding:0px;
-	font-size:1.0em;	
+.article .del-icon{
+	
+	display:inline;
+	padding:10px;
+	border:1px solid #777;
 	background:#fff;
-	border-radius:20px;
-	text-align:center;
+	color:#777;
+	-webkit-transition:all 0.1s;
+}
+.article .del-icon:hover{
+	color:#000;
+	border:1px solid #999;
+	box-shadow: 0 4px 4px -3px #555;
+	-webkit-transition:all 0.1s;
+}
+.article .del-icon:active{
+	box-shadow: none;
+	border:2px solid #000;
+}
+
+.article .article-meta {
+	display:inline;
+	padding:10px;
+	border:1px solid #777;
+	background:#eee;
+	color:#aaa;
+
 }

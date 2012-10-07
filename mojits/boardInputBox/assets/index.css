@@ -21,6 +21,7 @@
 	border-radius:4px;
 	text-align: center;
 	box-shadow: 0 5px 5px -5px #777;
+	min-width:330px;
 }
 
 

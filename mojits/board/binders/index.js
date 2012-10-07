@@ -42,13 +42,20 @@ YUI.add('boardBinderIndex', function (Y, NAME) {
                 var args = {
                     params: {
                         route: {
-                            call: 'deleteEntry',
+                            call: 'editEntry',
                             id: e.currentTarget.get('id')
                         }
                     }
                 };
                 self.mojitProxy.refreshView(args);
             });
+
+            node.all('.del-icon').on('click', function (e) {
+                Y.fire('DELETE_ARTICLE', {}, {
+                    id: e.target.get('id')
+                });
+            });
+
         },
 
 
@@ -116,6 +123,24 @@ YUI.add('boardBinderIndex', function (Y, NAME) {
                 self.mojitProxy.refreshView(args);
             });
 
+            Y.on('DELETE_ARTICLE', function (e, dataObj) {
+                var args;
+                if (dataObj) {
+                    console.log(dataObj.id);
+                    args = {
+                        params: {
+                            route: {
+                                defer: true,
+                                call: 'deleteArticle',
+                                id: dataObj.id || ''
+                            }
+                        }
+                    };
+                    this.mojitProxy.refreshView(args);
+                } else {
+                    console.log('no dataObj sent in the broadcast DELETE_ENTRY');
+                }
+            }, this);
             Y.on('UPDATE_BOARD', function (e, input) {
                 var args = {
                     params: {

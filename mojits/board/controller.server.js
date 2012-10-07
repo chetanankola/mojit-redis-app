@@ -43,8 +43,9 @@ YUI.add('board', function (Y, NAME) {
             if (ac.params.getFromRoute('call') === 'addArticle') {
                 return this.addArticle(ac);
             }
-            if (ac.params.getFromRoute('call') === 'deleteEntry') {
-                return this.deleteEntry(ac, ac.params.getFromRoute('id'));
+            if (ac.params.getFromRoute('call') === 'deleteArticle') {
+                Y.log('deleteArticle', 'warn');
+                return this.deleteArticle(ac, ac.params.getFromRoute('id'));
             }
             //return this.deleteEntry(ac, 218);
             return this.showAllArticles(ac);
@@ -65,14 +66,14 @@ YUI.add('board', function (Y, NAME) {
                 }
                 for (i = 0; i < replies.length; i++) {
                     output[i] = JSON.parse(replies[i].toString());//JSON.parse(replies[i]);
-                    Y.log(output[i], "warn");
+                    //Y.log(output[i], "warn");
                 }
                 if (replies.length === 0) {
                     finalOutput.empty = {msg: 'emptyDb'};
                 }
                 client.quit();
                 finalOutput.output = output;
-                finalOutput.customMsg = {msg: 'meh meh you are a noobe'};
+                //finalOutput.customMsg = {msg: 'meh meh you are a noobe'};
                 ac.done(finalOutput);
             });
         },
@@ -131,7 +132,9 @@ YUI.add('board', function (Y, NAME) {
             });
         },
 
-        deleteEntry: function (ac, id) {
+        deleteArticle: function (ac, id) {
+            Y.log('deleteEntry function', 'warn');
+            console.log(id);
             var output,
                 self = this,
                 redis = require("redis"),

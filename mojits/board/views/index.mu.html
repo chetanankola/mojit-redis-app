@@ -1,14 +1,15 @@
 <div id="{{mojit_view_id}}" class="board {{#empty}}noborder{{/empty}}">
 	<div id="output">
-	    {{#output}}
-	    <div class='article' id='{{id}}'>
-	    	<h2>{{value}} <span class="btn-delete">x</span></h2>
-	    	<span>{{key}}</span>
-		</div>
-	    {{/output}}
+		<ul>
+		    {{#output}}
+		    <li class='article' id='{{id}}'>
+			    	<div class="content">{{value}}</div>
+			    	<div class="article-meta">{{key}}</div>
+			    	<div class="del-icon" id='{{id}}'>X</div>
+			</li>
+		    {{/output}}
+		</ul>
 	</div>
-
-
     {{#customMsg}}<h2>{{msg}} </h2>{{/customMsg}}
     {{#empty}} <h2>{{msg}}</h2>{{/empty}}
 </div>
