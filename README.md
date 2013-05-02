@@ -5,7 +5,7 @@ simple mojito app to talk with redis no sql database
 
 Steps:
 ======
-
+:)
         first setup the redis server using instructuon here: http://redis.io/topics/quickstart
         download http://download.redis.io/redis-stable.tar.gz
         tar xvzf redis-stable.tar.gz
